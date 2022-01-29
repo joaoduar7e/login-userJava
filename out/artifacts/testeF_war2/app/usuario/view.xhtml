@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/WEB-INF/template.xhtml">
+
+    <ui:define name="body">
+
+        <h:form>
+            <p:panel>
+                <p:panelGrid columns="2"
+                             columnClasses="ui-grid-col-2,ui-grid-col-4,ui-grid-col-2,ui-grid-col-4"
+                             layout="grid"
+                             styleClass="ui-panelgrid-blank ui-fluid"
+                             style="border:0px none; background-color:transparent;">
+
+                    <p:row id="my-row-id" styleClass="my-heading-row" style="font-weight: bold">
+                        Dados do cadastro:
+                    </p:row>
+
+                    <p:outputLabel value="Nome"/>
+                    <h:outputText value="#{usuarioControle.usuario.nome}" id="fun" size="40"
+                                  styleClass="hardblue font"/>
+
+                    <p:outputLabel value="Email"/>
+                    <h:outputText value="#{usuarioControle.usuario.email}" id="email" size="40" styleClass="hardblue"/>
+                </p:panelGrid>
+                <br/>
+                <p:panelGrid columns="1"
+                             columnClasses="ui-grid-col-12"
+                             layout="grid"
+                             styleClass="ui-panelgrid-blank ui-fluid"
+                             style="border:0px none; background-color:transparent;">
+                    <p:row styleClass="my-heading-row" style="font-weight: bold">
+                        Lista de Telefones:
+                    </p:row>
+                    <p:dataTable value="#{usuarioControle.usuario.telefone}" var="tel">
+                        <p:column headerText="DDD">#{tel.ddd}</p:column>
+                        <p:column headerText="Número">#{tel.numero}</p:column>
+                        <p:column headerText="Tipo">#{tel.tipo}</p:column>
+                    </p:dataTable>
+
+                    <p:row>
+                        <p:column styleClass="ui-grid-col-12">
+
+                            <p:commandButton value="Voltar" ajax="false" styleClass="ui-button-raised" immediate="true"
+                                             action="usuariolist.xhtml"/>
+                        </p:column>
+
+                    </p:row>
+                </p:panelGrid>
+            </p:panel>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+
+</html>

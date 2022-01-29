@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<h:head>
+    <title>Sistema Usuário/Login</title>
+</h:head>
+<h:body>
+    <p:growl id="messages"/>
+    <h:form>
+
+        <p:menubar>
+
+            <p:menuitem value="Home" icon="pi pi-home" ajax="false" outcome="/index.xhtml"/>
+            <p:submenu label="Cadastros" icon="pi pi-fw pi-plus-circle">
+
+                <p:menuitem value="Usuário" icon="pi pi-fw pi-user" ajax="false" outcome="/app/usuario/usuariolist.xhtml"/>
+            </p:submenu>
+
+            <p:divider layout="vertical"/>
+
+            <p:divider layout="vertical"/>
+
+            <p:menuitem value="Sair" icon="pi pi-fw pi-power-off" action="#{loginControle.logoff()}"/>
+
+        </p:menubar>
+
+    </h:form>
+
+    <ui:insert name="body"/>
+
+    <h:outputStylesheet>
+        .centerL {
+            text-align: center;
+        }
+
+        .hardblue {
+            color: #27AAE1;
+        }
+
+        .hardred {
+            color: #ff1c00;
+        }
+
+        .hardgreen {
+            color: green;
+        }
+
+        .font {
+            font-weight: bold;
+        }
+
+        p {
+            line-height: 1.5;
+            margin: 0;
+        }
+
+    </h:outputStylesheet>
+
+    <h:outputScript>
+        PrimeFaces.locales['pt'] = {
+            closeText: 'Fechar',
+            prevText: 'Anterior',
+            nextText: 'Próximo',
+            currentText: 'Começo',
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+            weekHeader: 'Semana',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: '',
+            timeOnlyTitle: 'Só Horas',
+            timeText: 'Tempo',
+            hourText: 'Hora',
+            minuteText: 'Minuto',
+            secondText: 'Segundo',
+            currentText: 'Data Atual',
+            ampm: false,
+            month: 'Mês',
+            week: 'Semana',
+            day: 'Dia',
+            allDayText: 'Todo Dia'
+        };
+
+
+    </h:outputScript>
+</h:body>
+</html>
+
