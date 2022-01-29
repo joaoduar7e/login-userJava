@@ -17,8 +17,8 @@ Aplicação com gerenciamento de usuários e efetuar login.
 - [Java](https://www.java.com/pt-BR/)
 - [PrimeFaces](https://www.primefaces.org/showcase/index.xhtml/)
 - [PostgreSQL](https://www.postgresql.org/)
-- JPA
-- JSF
+- [JPA](https://www.oracle.com/java/technologies/persistence-jsp.html)
+- [JSF](https://www.oracle.com/java/technologies/javaserverfaces.html)
 
 ## ❓ Como utilizar?
 
