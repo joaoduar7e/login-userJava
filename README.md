@@ -35,6 +35,10 @@ Aplicação com gerenciamento de usuários e efetuar login.
 
 - Criar banco de dados chamado -> login.
 
+- *IMPORTANTE* > Realizar insert para criar um usuário e poder acessar o sistema.
+> Query >  INSERT INTO usuario (id, email, nome, senha)
+VALUES (9999, 'admin@gmai.com', 'admin', 'admin')
+
 </p>
 
 <p align="center">

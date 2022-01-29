@@ -27,10 +27,19 @@ public class UsuarioControle implements Serializable {
 
     public void addTelefone() {
         Telefone tTemp = null;
+
+        if (telefone.getNumero() == null) {
+            telefone.setNumero((int) ' ');
+        }
+        String tel = telefone.getNumero().toString();
+
         if (telefone.getDdd().isEmpty()) {
             JsfUtil.adicionarMenssagemErro("O DDD não pode ser vazio!");
             return;
-        } else if (telefone.getNumero().toString().isEmpty()) {
+        } else if (telefone.getDdd().length() != 2) {
+            JsfUtil.adicionarMenssagemErro("O DDD deve conter 2 caracteres!");
+            return;
+        } else if (tel.isEmpty()) {
             JsfUtil.adicionarMenssagemErro("O número não pode ser vazio!");
             return;
         } else if (telefone.getTipo().isEmpty()) {
@@ -68,10 +77,15 @@ public class UsuarioControle implements Serializable {
 
     public void salvar() {
         try {
-            usuarioFacade.salvar(usuario);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("usuariolist.xhtml");
+            if (usuario.getSenha().length() < 4) {
+                JsfUtil.adicionarMenssagemErro("A senha deve conter no mínimo 4 caracteres!");
+                return;
+            } else {
+                usuarioFacade.salvar(usuario);
+                FacesContext.getCurrentInstance().getExternalContext().redirect("usuariolist.xhtml");
+            }
         } catch (Exception ex) {
-            JsfUtil.adicionarMenssagemErro("Já existe um usuário com esse dado, digite um novo valor!");
+            JsfUtil.adicionarMenssagemErro("Já existe um usuário com esse NOME, digite um novo valor!");
         }
     }
 

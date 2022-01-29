@@ -73,13 +73,13 @@
                                             </p:inputText>
                                         </p:panelGrid>
                                         <p:commandButton value="Adicionar Telefone"
-                                                         ajax="false"
+                                                         ajax="false" update="dtTel"
                                                          styleClass="ui-button-raised ui-button-secondary"
                                                          actionListener="#{usuarioControle.addTelefone()}">
                                         </p:commandButton>
                                     </h:panelGroup>
 
-                                    <p:dataTable value="#{usuarioControle.usuario.telefone}" var="t" rows="10"
+                                    <p:dataTable id="dtTel" value="#{usuarioControle.usuario.telefone}" var="t" rows="10"
                                                  reflow="true"
                                                  paginator="false">
                                         <f:facet name="header">
